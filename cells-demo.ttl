@@ -1,0 +1,44 @@
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix dc: <http://purl.org/dc/elements/1.1/> .
+@prefix : <https://example.org/cells-demo>
+
+rdfs:Resource a rdfs:Class ;
+	rdfs:isDefinedBy <http://www.w3.org/2000/01/rdf-schema#> ;
+	rdfs:label "Resource" ;
+	rdfs:comment "The class resource, everything." .
+
+rdfs:Class a rdfs:Class ;
+	rdfs:isDefinedBy <http://www.w3.org/2000/01/rdf-schema#> ;
+	rdfs:label "Class" ;
+	rdfs:comment "The class of classes." ;
+	rdfs:subClassOf rdfs:Resource .
+
+:Block a rdfs:Class
+
+:Cells_Demo a :Block, :Note.
+:Cells_Demo :inspirations :Workflowy, :Notion, :Roam_Research
+:Cells_Demo :label "Cells Demo";
+            :abstract "Cells is an RDF Editor with a focus on creating dynamic Personal Knowledge Graphs";
+            :author :Omes_Baltes;
+            :see_also :Markdown_Demo.
+            :md :md_2ddg643j;
+            :md :md_2ddg643j. 
+            
+:md_2ddg643j a :Markdown;
+             :content md"For Considered display properties see [[Display Preferences]]".
+:md_2ddg643j a :Markdown;
+             :content md"This is markdown literal Block / Node / Cell."
+
+
+----------------------------------------------------------
+:Markdown_Demo a :Block, :Note.
+:Markdown_Demo :label "Markdown Demo";
+            :md md"This is markdown literal Block / Node / Cell.";
+            :md md"Each markdown block represents a triple of the form
+                   <parent node> --md-> “Markdown literal”";
+            :md md"Each block is a node in the PKG. and also a child of it’s parent node (Markdown Demo).";
+            :md md"Markdown can mention (anonymous property / link) other pages [[Cells Demo]]";
+            :md md"This is markdown literal Block / Node / Cell.";
+            
